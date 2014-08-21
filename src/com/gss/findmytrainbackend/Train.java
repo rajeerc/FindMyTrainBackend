@@ -1,5 +1,8 @@
 package com.gss.findmytrainbackend;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
@@ -19,31 +22,25 @@ public class Train {
 	@Persistent
 	private String destination;
 	
-	@Persistent
-	private Stop[] stops;
-	
-	@Persistent
-	private final int STOP_COUNT;
+	@Persistent (mappedBy = "train")
+	private List<Stop> stops = new ArrayList<Stop>();
 	
 	@Persistent
 	private int count = 0;
 	
-	public Train (int stopCount){
-		STOP_COUNT = stopCount;
-		stops = new Stop[STOP_COUNT];
+	public Train (){
 	}
+	
+
 	
 	//adds the stops in which the train would stop
 	public void addStop (String station, String time){
-		if (count < STOP_COUNT){
+
 			Stop tempStop = new Stop();
 			tempStop.setStation(station);
 			tempStop.setTime(time);
-			stops[count++] = tempStop;
-		}
-		else {
-			//the limited of stops has reached for the train
-		}
+			stops.add(tempStop);
+			
 	}
 
 	/**
@@ -91,7 +88,7 @@ public class Train {
 	/**
 	 * @return the stops
 	 */
-	public Stop[] getStops() {
+	public List<Stop> getStops() {
 		return stops;
 	}
 

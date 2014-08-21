@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"MKGA2miAJpVGF7yQTQhsoDXpye8/f6y2CjSyomMTWCZIDMGW2tFcc-A\"",
+ "etag": "\"MKGA2miAJpVGF7yQTQhsoDXpye8/uXIrMpg0JhI7Um8typ7156ufSbo\"",
  "discoveryVersion": "v1",
  "id": "findmytrain:v1",
  "name": "findmytrain",
@@ -132,6 +132,34 @@
     }
    }
   },
+  "Key": {
+   "id": "Key",
+   "type": "object",
+   "properties": {
+    "appId": {
+     "type": "string"
+    },
+    "complete": {
+     "type": "boolean"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "kind": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "namespace": {
+     "type": "string"
+    },
+    "parent": {
+     "$ref": "Key"
+    }
+   }
+  },
   "Record": {
    "id": "Record",
    "type": "object",
@@ -163,8 +191,7 @@
    "type": "object",
    "properties": {
     "id": {
-     "type": "string",
-     "format": "int64"
+     "$ref": "Key"
     },
     "station": {
      "type": "string"

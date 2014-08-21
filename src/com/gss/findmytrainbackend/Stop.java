@@ -6,12 +6,14 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
+import com.google.appengine.api.datastore.Key;
+
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class Stop {
 	
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-	private Long id;
+	private Key id;
 	
 	//the station name
 	@Persistent
@@ -20,6 +22,9 @@ public class Stop {
 	//the time at which the train arrives the station
 	@Persistent
 	private String time;
+	
+	@Persistent
+	private Train train;
 	
 	
 	/**
@@ -49,7 +54,7 @@ public class Stop {
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public Key getId() {
 		return id;
 	}
 	
