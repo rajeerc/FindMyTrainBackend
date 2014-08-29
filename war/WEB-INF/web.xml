@@ -15,7 +15,7 @@
   <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
   <init-param>
    <param-name>services</param-name>
-   <param-value>com.gss.findmytrainbackend.RecordEndpoint,com.gss.findmytrainbackend.StopEndpoint,com.gss.findmytrainbackend.TrainEndpoint,com.gss.findmytrainbackend.UserEndpoint</param-value>
+   <param-value>com.gss.findmytrainbackend.RecordEndpoint,com.gss.findmytrainbackend.Services,com.gss.findmytrainbackend.StopEndpoint,com.gss.findmytrainbackend.TrainEndpoint,com.gss.findmytrainbackend.UserEndpoint</param-value>
   </init-param>
  </servlet>
  <servlet-mapping>

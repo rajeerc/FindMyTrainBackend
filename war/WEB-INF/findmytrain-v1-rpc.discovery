@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"MKGA2miAJpVGF7yQTQhsoDXpye8/uXIrMpg0JhI7Um8typ7156ufSbo\"",
+ "etag": "\"MKGA2miAJpVGF7yQTQhsoDXpye8/sbp63Bnb8jTb_vKNEvBp2p4XyLI\"",
  "discoveryVersion": "v1",
  "id": "findmytrain:v1",
  "name": "findmytrain",
@@ -201,6 +201,18 @@
     }
    }
   },
+  "StringCollection": {
+   "id": "StringCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
   "Train": {
    "id": "Train",
    "type": "object",
@@ -378,6 +390,25 @@
    ],
    "returns": {
     "$ref": "User"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "findmytrain.listOfTrains": {
+   "id": "findmytrain.listOfTrains",
+   "allowGet": true,
+   "parameters": {
+    "station": {
+     "type": "string",
+     "required": true
+    }
+   },
+   "parameterOrder": [
+    "station"
+   ],
+   "returns": {
+    "$ref": "StringCollection"
    },
    "scopes": [
     "https://www.googleapis.com/auth/userinfo.email"

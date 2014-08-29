@@ -225,6 +225,27 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
+    "findmytrain.listOfTrains" : {
+      "path" : "findmytrain/v1/listTrains",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.gss.findmytrainbackend.Services.listTrains",
+      "request" : {
+        "parameters" : {
+          "station" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "findmytrain.getTrain" : {
       "path" : "train/{id}",
       "httpMethod" : "GET",
@@ -557,6 +578,18 @@
           }
         }
       },
+      "StringCollection" : {
+        "id" : "StringCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
       "CollectionResponse_Train" : {
         "id" : "CollectionResponse_Train",
         "type" : "object",
@@ -643,6 +676,11 @@
         },
         "response" : {
           "$ref" : "Record"
+        }
+      },
+      "com.gss.findmytrainbackend.Services.listTrains" : {
+        "response" : {
+          "$ref" : "StringCollection"
         }
       },
       "com.gss.findmytrainbackend.TrainEndpoint.getTrain" : {
