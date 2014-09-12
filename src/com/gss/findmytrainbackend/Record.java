@@ -33,13 +33,45 @@ public class Record {
 	private String comment;
 	
 	@Persistent
-	private Train train;
+	private String trainid;
+	
+	//to keep track of the user in case a rating system is to be implemented
+	@Persistent
+	private String userid;
+
+	/**
+	 * @return the userid
+	 */
+	public String getUserid() {
+		return userid;
+	}
+
+	/**
+	 * @param userid the userid to set
+	 */
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
 
 	/**
 	 * @return the id
 	 */
 	public Long getId() {
 		return id;
+	}
+
+	/**
+	 * @return the trainid
+	 */
+	public String getTrainid() {
+		return trainid;
+	}
+
+	/**
+	 * @param trainid the trainid to set
+	 */
+	public void setTrainid(String trainid) {
+		this.trainid = trainid;
 	}
 
 	/**
@@ -105,19 +137,7 @@ public class Record {
 		this.comment = comment;
 	}
 
-	/**
-	 * @return the train
-	 */
-	public Train getTrain() {
-		return train;
-	}
-
-	/**
-	 * @param train the train to set
-	 */
-	public void setTrain(Train train) {
-		this.train = train;
-	}
+	
 	
 	
 	

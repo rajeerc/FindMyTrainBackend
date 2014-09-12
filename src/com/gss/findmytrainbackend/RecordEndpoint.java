@@ -3,7 +3,6 @@ package com.gss.findmytrainbackend;
 import com.gss.findmytrainbackend.PMF;
 
 import com.google.api.server.spi.config.Api;
-import com.google.api.server.spi.config.ApiClass;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 import com.google.api.server.spi.response.CollectionResponse;
@@ -21,7 +20,6 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
 @Api(name = "findmytrain", namespace = @ApiNamespace(ownerDomain = "gss.com", ownerName = "gss.com", packagePath = "findmytrainbackend"))
-@ApiClass(resource = "record")
 public class RecordEndpoint {
 
 	/**
