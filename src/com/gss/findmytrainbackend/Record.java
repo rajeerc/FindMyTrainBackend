@@ -5,9 +5,10 @@ import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
+import java.lang.Comparable;
 
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
-public class Record {
+public class Record /*implements Comparable<Record>*/{
 	
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
@@ -19,7 +20,7 @@ public class Record {
 	
 	//time stamp at which the record is sent from the device to the server
 	@Persistent
-	private String timeStamp;
+	private long timeStamp;
 	
 	
 	 //status of a particular train w.r.t. the station selected
@@ -98,14 +99,14 @@ public class Record {
 	/**
 	 * @return the timeStamp
 	 */
-	public String getTimeStamp() {
+	public long getTimeStamp() {
 		return timeStamp;
 	}
 
 	/**
 	 * @param timeStamp the timeStamp to set
 	 */
-	public void setTimeStamp(String timeStamp) {
+	public void setTimeStamp(long timeStamp) {
 		this.timeStamp = timeStamp;
 	}
 
@@ -136,6 +137,15 @@ public class Record {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+
+	/*@Override
+	public int compareTo(Record o) {
+		
+		int compare = (int)Long.parseLong(o.getTimeStamp()); 
+		
+		//ascending order
+		return (int)Long.parseLong(this.getTimeStamp()) - compare;
+	}*/
 
 	
 	

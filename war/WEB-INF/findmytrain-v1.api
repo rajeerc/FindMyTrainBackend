@@ -241,6 +241,31 @@
         "body" : "empty"
       }
     },
+    "findmytrain.checkTrainAndStationStatus" : {
+      "path" : "findmytrain/v1/checkStatus",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.gss.findmytrainbackend.Services.checkTrainAndStationStatus",
+      "request" : {
+        "parameters" : {
+          "Train id" : {
+            "type" : "string",
+            "required" : true
+          },
+          "Currnet Station" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "findmytrain.listOfTrains" : {
       "path" : "findmytrain/v1/listTrains",
       "httpMethod" : "GET",
@@ -252,27 +277,6 @@
       "request" : {
         "parameters" : {
           "station" : {
-            "type" : "string",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "findmytrain.listOfStationsOnSelectedTrain" : {
-      "path" : "findmytrain/v1/listStationsOnTrain",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.gss.findmytrainbackend.Services.listStationsOnTrain",
-      "request" : {
-        "parameters" : {
-          "trainId" : {
             "type" : "string",
             "required" : true
           }
@@ -523,7 +527,8 @@
             "type" : "string"
           },
           "timeStamp" : {
-            "type" : "string"
+            "type" : "string",
+            "format" : "int64"
           },
           "status" : {
             "type" : "integer"
@@ -622,11 +627,11 @@
           "parent" : {
             "$ref" : "Key"
           },
-          "complete" : {
-            "type" : "boolean"
-          },
           "namespace" : {
             "type" : "string"
+          },
+          "complete" : {
+            "type" : "boolean"
           }
         }
       },
@@ -723,12 +728,12 @@
           "$ref" : "Record"
         }
       },
-      "com.gss.findmytrainbackend.Services.listTrains" : {
+      "com.gss.findmytrainbackend.Services.checkTrainAndStationStatus" : {
         "response" : {
           "$ref" : "StringCollection"
         }
       },
-      "com.gss.findmytrainbackend.Services.listStationsOnTrain" : {
+      "com.gss.findmytrainbackend.Services.listTrains" : {
         "response" : {
           "$ref" : "StringCollection"
         }
